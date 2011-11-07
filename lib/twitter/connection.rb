@@ -13,12 +13,12 @@ module Twitter
     def connection(format=format)
       options = {
         :headers => {
-          'Accept' => "application/#{format}",
+          'Accept' => "application/#{format[:format]}",
           'User-Agent' => user_agent,
         },
         :proxy => proxy,
         :ssl => {:verify => false},
-        :url => api_endpoint,
+        :url => (format[:endpoint] || api_endpoint),
       }
 
       Faraday.new(options) do |builder|

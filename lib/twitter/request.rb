@@ -3,21 +3,25 @@ module Twitter
   module Request
     # Perform an HTTP GET request
     def get(path, options={}, format=format)
+      format = {:format => format} unless format.class == Hash
       request(:get, path, options, format)
     end
 
     # Perform an HTTP POST request
     def post(path, options={}, format=format)
+      format = {:format => format} unless format.class == Hash
       request(:post, path, options, format)
     end
 
     # Perform an HTTP PUT request
     def put(path, options={}, format=format)
+      format = {:format => format} unless format.class == Hash
       request(:put, path, options, format)
     end
 
     # Perform an HTTP DELETE request
     def delete(path, options={}, format=format)
+      format = {:format => format} unless format.class == Hash
       request(:delete, path, options, format)
     end
 
