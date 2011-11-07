@@ -10,15 +10,15 @@ module Twitter
   module Connection
     private
 
-    def connection(format=format)
+    def connection(format=format, endpoint = nil)
       options = {
         :headers => {
-          'Accept' => "application/#{format[:format]}",
+          'Accept' => "application/#{format}",
           'User-Agent' => user_agent,
         },
         :proxy => proxy,
         :ssl => {:verify => false},
-        :url => (format[:endpoint] || api_endpoint),
+        :url => (endpoint || api_endpoint),
       }
 
       Faraday.new(options) do |builder|
